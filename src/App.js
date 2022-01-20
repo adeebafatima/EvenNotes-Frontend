@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
 import NoteState from "./context/notes/NoteState";
+import { Alert } from "./components/Alert";
 
 function App() {
   return (
@@ -12,16 +13,19 @@ function App() {
       <NoteState>
         <Router>
           <Fragment>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-            <Routes>
-              <Route exact path="/about" element={<About />} />
-            </Routes>
+            <Navbar title="EvenNotes" />
+            <Alert message="You will be successful in both the world"/>
+            <div className="container">
+              <Routes>
+                <Route path="/" element={<Home />} />
+              </Routes>
+              <Routes>
+                <Route exact path="/about" element={<About />} />
+              </Routes>
+            </div>
           </Fragment>
         </Router>
-      </NoteState>
+      </NoteState> 
     </>
   );
 }
