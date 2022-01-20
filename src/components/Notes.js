@@ -1,11 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import noteContext from "../context/notes/noteContext";
 import Noteitem from "./Noteitem";
 import CreateNote from "./CreateNote";
 
 const Notes = () => {
   const context = useContext(noteContext);
-  const { notes, createNote } = context;
+  const { notes, readNotes } = context;
+  useEffect(() => {
+    readNotes();
+  }, []);
   return (
     <>
       <CreateNote />
